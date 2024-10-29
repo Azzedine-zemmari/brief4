@@ -1,100 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>to do</title>
     <link rel="stylesheet" href="./output.css">
 </head>
+
 <body>
     <header class="flex justify-between p-2 bg-primary">
         <span class="relative flex items-center">
-            <input type="text" placeholder="recherche" class="bg-blure placeholder:pl-1 placeholder:text-white md:w-60 ">
-            <svg class="absolute end-0 " xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#ffffff"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+            <input type="text" placeholder="recherche"
+                class="bg-blure placeholder:pl-1 placeholder:text-white md:w-60 ">
+            <svg class="absolute end-0 " xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960"
+                width="22px" fill="#ffffff">
+                <path
+                    d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+            </svg>
         </span>
         <div class="bg-blure p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#ffffff"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+            <svg id="add" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
+                fill="#ffffff">
+                <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+            </svg>
         </div>
     </header>
     <!-- all the cards -->
-        <section class="grid grid-cols-1 grid-rows-3 md:grid-cols-3 md:grid-rows-1 place-items-center mt-3">
-            <div class="relative card ">
-                <div class="flex justify-between">
-                    <h1 class="text-title font-bold text-lg pl-1">To do</h1>
-                    <p class="text-title font-bold absolute top-0 right-0 bg-red-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg ">4</p>
-                </div>
-                <div class="bg-white w-64 mx-auto p-2 border-b-2 border-red-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]">
-                    <h2 class="text-BigTitle font-semibold ">maquettage de site to do</h2>
-                    <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#5f6368"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
-                </div>  
+    <section class="grid grid-cols-1 grid-rows-3 md:grid-cols-3 md:grid-rows-1 place-items-center mt-3">
+        <div class="relative card ">
+            <div class="flex justify-between">
+                <h1 class="text-title font-bold text-lg pl-1">To do</h1>
+                <p
+                    class="text-title font-bold absolute top-0 right-0 bg-red-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg ">
+                    4</p>
             </div>
-            <div class="relative card mt-1">
-                <div class="flex justify-between">
-                    <h1 class="text-title font-bold text-lg pl-1">doing</h1>
-                    <p class="text-title font-bold absolute top-0 right-0 bg-orange-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8   lg:text-lg">4</p>
+            <div
+                class="bg-white w-64 mx-auto p-2 border-b-2 border-red-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]">
+                <h2 class="text-BigTitle font-semibold ">maquettage de site to do</h2>
+                <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
+                    fill="#5f6368">
+                    <path
+                        d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
+                </svg>
+            </div>
+        </div>
+        <div class="relative card mt-1">
+            <div class="flex justify-between">
+                <h1 class="text-title font-bold text-lg pl-1">doing</h1>
+                <p
+                    class="text-title font-bold absolute top-0 right-0 bg-orange-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8   lg:text-lg">
+                    4</p>
+            </div>
+            <div
+                class="bg-white w-64 mx-auto p-2 border-b-2 border-orange-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]">
+                <h2 class="text-BigTitle font-semibold ">maquettage de site to do</h2>
+                <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
+                    fill="#5f6368">
+                    <path
+                        d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
+                </svg>
+            </div>
+        </div>
+        <div class="relative card mt-1">
+            <div class="flex justify-between">
+                <h1 class="text-title font-bold text-lg pl-1">done</h1>
+                <p
+                    class="text-title font-bold absolute top-0 right-0 bg-green-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg">
+                    4</p>
+            </div>
+            <div
+                class="bg-white w-64 mx-auto p-2 border-b-2 border-green-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]">
+                <h2 class="text-BigTitle font-semibold ">maquettage de site to do</h2>
+                <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
+                    fill="#5f6368">
+                    <path
+                        d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
+                </svg>
+            </div>
+        </div>
+    </section>
+    <!-- add modal -->
+    <div id="modal"
+        class="bg-white hidden border border-title w-60 h-auto rounded-lg fixed top-72  left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:top-96">
+        <form class="flex flex-col m-3 ">
+            <label for="titre">titre</label>
+            <input type="text" class=" border bg-slate-200" id="titre">
+            <label for="description">description</label>
+            <textarea class=" border bg-slate-200 resize-none" id="description"></textarea>
+            <label for="status">status</label>
+            <div class="flex flex-col">
+                <div class="flex items-center gap-2">
+                    <label for="toDo" class="w-24">to do</label>
+                    <input type="radio" name="status" id="toDo" value="to do">
                 </div>
-                <div class="bg-white w-64 mx-auto p-2 border-b-2 border-orange-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]">
-                    <h2 class="text-BigTitle font-semibold ">maquettage de site to do</h2>
-                    <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#5f6368"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
+                <div class="flex items-center gap-2">
+                    <label for="doing" class="w-24">doing</label>
+                    <input type="radio" name="status" id="doing" value="doing">
+                </div>
+                <div class="flex items-center gap-2">
+                    <label for="done" class="w-24">done</label>
+                    <input type="radio" name="status" id="done" value="done">
                 </div>
             </div>
-            <div class="relative card mt-1">
-                <div class="flex justify-between">
-                    <h1 class="text-title font-bold text-lg pl-1">done</h1>
-                    <p class="text-title font-bold absolute top-0 right-0 bg-green-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg">4</p>
+            <label for="date">Date d'echéance</label>
+            <input type="date" name="date" id="date">
+            <label for="Priorite">Priorite</label>
+            <div class="flex flex-col">
+                <div class="flex items-center gap-2">
+                    <label for="P1" class="w-24">P1</label>
+                    <input type="radio" name="Priorite" id="P1" value="p1">
                 </div>
-                <div class="bg-white w-64 mx-auto p-2 border-b-2 border-green-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]">
-                    <h2 class="text-BigTitle font-semibold ">maquettage de site to do</h2>
-                    <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#5f6368"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
+                <div class="flex items-center gap-2">
+                    <label for="P2" class="w-24">P2</label>
+                    <input type="radio" name="Priorite" id="P2" value="p2">
+                </div>
+                <div class="flex items-center gap-2">
+                    <label for="P3" class="w-24">P3</label>
+                    <input type="radio" name="Priorite" id="P3" value="p3">
                 </div>
             </div>
-        </section>
-        <!-- add modal -->
-        <div class="bg-white border border-title w-60 h-auto rounded-lg fixed top-72  left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:top-96">
-            <form class="flex flex-col m-3 ">
-                <label for="titre">titre</label>
-                <input type="text" class=" border bg-slate-200" id="titre">
-                <label for="description">description</label>
-                <input type="text" class=" border bg-slate-200" id="description" >
-                <label for="status">status</label>
-                <div class="flex flex-col">
-                    <div class="flex items-center gap-2">
-                      <label for="toDo" class="w-24">to do</label>
-                      <input type="radio" name="status" id="toDo">
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <label for="doing" class="w-24">doing</label>
-                      <input type="radio" name="status" id="doing">
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <label for="done" class="w-24">done</label>
-                      <input type="radio" name="status" id="done">
-                    </div>
-                  </div>
-                  <label for="date">Date d'echéance</label>
-                  <input type="date" name="date" id="date">
-                  <label for="Priorite">Priorite</label>
-                  <div class="flex flex-col">
-                      <div class="flex items-center gap-2">
-                        <label for="P1" class="w-24">P1</label>
-                        <input type="radio" name="Priorite" id="P1">
-                      </div>
-                      <div class="flex items-center gap-2">
-                        <label for="P2" class="w-24">P2</label>
-                        <input type="radio" name="Priorite" id="P2">
-                      </div>
-                      <div class="flex items-center gap-2">
-                        <label for="P3" class="w-24">P3</label>
-                        <input type="radio" name="Priorite" id="P3">
-                      </div>
-                    </div>
-                    <div class="flex mt-2 gap-2">
-                        <button class="bg-green-500 p-2 rounded-md text-white font-medium" id="submit">submit</button>
-                        <button class="bg-red-500 p-2 rounded-md text-white" id="cancel">cancel</button>
-                    </div>
-            </form>
-          </div>
+            <div class="flex mt-2 gap-2">
+                <button class="bg-green-500 p-2 rounded-md text-white font-medium" id="submit">submit</button>
+                <button class="bg-red-500 p-2 rounded-md text-white" id="cancel">cancel</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        const modal = document.getElementById("modal");
+        const submit = document.getElementById("submit");
+        const cancel = document.getElementById("cancel");
+        const openModal = document.getElementById("add");
+        const all = [];
+        let id = 1;
+        openModal.addEventListener("click", function () {
+            modal.classList.remove("hidden");
+        })
+        submit.addEventListener("click", function (event) {
+            const titre = document.getElementById("titre").value;
+            const description = document.getElementById("description").value;
+            const status = document.querySelector('input[name="status"]:checked');
+            if (status) {
+                console.log(status.value);
+            } else {
+                console.log('No status selected');
+            }
+            const date = document.getElementById("date").value;
+            const Priorite = document.querySelector('input[name="Priorite"]:checked');
+            if (Priorite) {
+                console.log(Priorite.value);
+            } else {
+                console.log('No status selected');
+            }
+            all.push({ "id": id, "titre": titre, "descrip": description, "status": status ? status.value : '', "date": date, "priority": Priorite ? Priorite.value : '' })
+            id++
+            console.log(all)
+            event.preventDefault()
+            modal.classList.add("hidden");
+        })
+        cancel.addEventListener("click", function () {
+            window.alert("see you ");
+            modal.classList.add("hidden");
+        })
 
-
+    </script>
 </body>
+
 </html>
