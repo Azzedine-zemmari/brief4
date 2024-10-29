@@ -553,3 +553,61 @@ video {
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.end-0 {
+  inset-inline-end: 0px;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.bg-primary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(73 80 118 / var(--tw-bg-opacity));
+}
+
+.bg-blure {
+  --tw-bg-opacity: 1;
+  background-color: rgb(132 137 165 / var(--tw-bg-opacity));
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+
+.placeholder\:pl-2::-moz-placeholder {
+  padding-left: 0.5rem;
+}
+
+.placeholder\:pl-2::placeholder {
+  padding-left: 0.5rem;
+}
+
+.placeholder\:pl-1::-moz-placeholder {
+  padding-left: 0.25rem;
+}
+
+.placeholder\:pl-1::placeholder {
+  padding-left: 0.25rem;
+}
