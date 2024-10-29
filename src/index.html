@@ -150,22 +150,30 @@
                 
                 const data = JSON.parse(storeData);
                 console.log("this is data ",data);
-                data.forEach(item => {      
-                    console.log("data.status = ",item.status) 
-                    console.log("second condition");
-                    // console.log(data.titre) undefined
-                    const newDiv = document.createElement("div");
-                    newDiv.innerHTML = `<h2 class="text-BigTitle font-semibold ">${item.titre}</h2>
-                    <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
-                    fill="#5f6368">
-                    <path
-                    d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
-                    </svg>`
-                    if(item.status === "to do"){           //not workin 
-                    TodoCard.append(newDiv);
-                    console.log("true");
-                    }
-                });
+                data.forEach((item) => {  
+                    console.log(item)
+                        console.log("data.status = ",item.status) 
+                        console.log("second condition");
+                        const newDiv = document.createElement("div");
+                        newDiv.innerHTML = `<h2 class="text-BigTitle font-semibold ">${item.titre}</h2>
+                        <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
+                        fill="#5f6368">
+                        <path
+                        d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
+                        </svg>`
+                        if(item.status == "to do"){          
+                        TodoCard.append(newDiv);
+                        console.log("true");
+                        }
+                         if (item.status == "doing"){
+                            DoingCard.append(newDiv)
+                            console.log("doing true");
+                        }
+                        if(item.status == "done"){
+                            DoneCard.append(newDiv);
+                            console.log("done true")
+                        }
+                    });
             }
             else{
                 console.log("user todos not found in local storage")
@@ -179,32 +187,22 @@
             const titre = document.getElementById("titre").value;
             const description = document.getElementById("description").value;
             const status = document.querySelector('input[name="status"]:checked');
-            if (status) {
-                console.log(status.value);
-            } else {
-                console.log('No status selected');
-            }
             const date = document.getElementById("date").value;
             const Priorite = document.querySelector('input[name="Priorite"]:checked');
-            if (Priorite) {
-                console.log(Priorite.value);
-            } else {
-                console.log('No status selected');
-            }
+
             all.push({ "id": id, "titre": titre, "descrip": description, "status": status ? status.value : '', "date": date, "priority": Priorite ? Priorite.value : '' })
             id++
             localStorage.setItem("info",JSON.stringify(all))
-            show ()
+            show();
             modal.classList.add("hidden");
         })
         // to get the data from localstorage 
      
         // to close the modal
         cancel.addEventListener("click", function () {
-            window.alert("see you ");
             modal.classList.add("hidden");
         })
-
+// show() //intiall the page with the previous data
     </script>
 </body>
 
