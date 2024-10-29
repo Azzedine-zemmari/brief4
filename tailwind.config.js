@@ -8,6 +8,7 @@ module.exports = {
         'BigTitle':'#44546F',
         'title' : '#172B4D',
         'blure' : '#8489A5',
+        'CardBg' : '#f1f2f4'
       },
     },
   },

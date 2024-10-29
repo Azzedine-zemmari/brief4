@@ -7,14 +7,47 @@
     <link rel="stylesheet" href="./output.css">
 </head>
 <body>
-    <div class="flex justify-between p-2 bg-primary">
+    <header class="flex justify-between p-2 bg-primary">
         <span class="relative flex items-center">
-            <input type="text" placeholder="recherche" class="placeholder:pl-1">
-            <svg class="absolute end-0 " xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#5f6368"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+            <input type="text" placeholder="recherche" class="bg-blure placeholder:pl-1 placeholder:text-white md:w-60 ">
+            <svg class="absolute end-0 " xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#ffffff"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
         </span>
-        <div class="bg-blure p-2 ">
-            <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#5f6368"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+        <div class="bg-blure p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#ffffff"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
         </div>
-    </div>
+    </header>
+    <!-- all the cards -->
+        <main class="grid grid-cols-1 grid-rows-3 md:grid-cols-3 md:grid-rows-1 place-items-center mt-3">
+            <div class="relative card ">
+                <div class="flex justify-between">
+                    <h1 class="text-title font-bold text-lg pl-1">To do</h1>
+                    <p class="text-title font-bold absolute top-0 right-0 bg-red-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg ">4</p>
+                </div>
+                <div class="bg-white w-64 mx-auto p-2 border-b-2 border-red-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]">
+                    <h2 class="text-BigTitle font-semibold ">maquettage de site to do</h2>
+                    <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#5f6368"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
+                </div>  
+            </div>
+            <div class="relative card mt-1">
+                <div class="flex justify-between">
+                    <h1 class="text-title font-bold text-lg pl-1">doing</h1>
+                    <p class="text-title font-bold absolute top-0 right-0 bg-orange-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8   lg:text-lg">4</p>
+                </div>
+                <div class="bg-white w-64 mx-auto p-2 border-b-2 border-orange-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]">
+                    <h2 class="text-BigTitle font-semibold ">maquettage de site to do</h2>
+                    <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#5f6368"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
+                </div>
+            </div>
+            <div class="relative card mt-1">
+                <div class="flex justify-between">
+                    <h1 class="text-title font-bold text-lg pl-1">done</h1>
+                    <p class="text-title font-bold absolute top-0 right-0 bg-green-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg">4</p>
+                </div>
+                <div class="bg-white w-64 mx-auto p-2 border-b-2 border-green-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]">
+                    <h2 class="text-BigTitle font-semibold ">maquettage de site to do</h2>
+                    <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#5f6368"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
+                </div>
+            </div>
+        </main>
 </body>
 </html>
