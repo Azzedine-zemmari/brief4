@@ -28,24 +28,19 @@
     </header>
     <!-- all the cards -->
     <section class="grid grid-cols-1 grid-rows-3 md:grid-cols-3 md:grid-rows-1 place-items-center mt-3">
-        <div id="TodoCard" class="relative card ">
+        <div class="relative card ">
             <div class="flex justify-between">
                 <h1 class="text-title font-bold text-lg pl-1">To do</h1>
                 <p
                     class="text-title font-bold absolute top-0 right-0 bg-red-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg ">
                     4</p>
             </div>
-            <!-- <div
-                class="bg-white w-64 mx-auto p-2 border-b-2 border-red-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]">
-                <h2 class="text-BigTitle font-semibold ">maquettage de site to do</h2>
-                <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
-                    fill="#5f6368">
-                    <path
-                        d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
-                </svg>
-            </div> -->
+             <div
+                class="bg-white w-64 mx-auto p-2 border-b-2 border-red-600 rounded-sm mt-5 flex flex-col justify-between md:w-52 lg:w-72 xl:w-[350px]" id="TodoCard">
+                
+            </div> 
         </div>
-        <div id="DoingCard" class="relative card mt-1">
+        <div class="relative card mt-1">
             <div class="flex justify-between">
                 <h1 class="text-title font-bold text-lg pl-1">doing</h1>
                 <p
@@ -53,16 +48,11 @@
                     4</p>
             </div>
             <div
-                class="bg-white w-64 mx-auto p-2 border-b-2 border-orange-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]">
-                <h2 class="text-BigTitle font-semibold ">maquettage de site to do</h2>
-                <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
-                    fill="#5f6368">
-                    <path
-                        d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
-                </svg>
+                class="bg-white w-64 mx-auto p-2 border-b-2 border-orange-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]"  id="DoingCard">
+               
             </div>
         </div>
-        <div id="DoneCard" class="relative card mt-1">
+        <div  class="relative card mt-1">
             <div class="flex justify-between">
                 <h1 class="text-title font-bold text-lg pl-1">done</h1>
                 <p
@@ -70,13 +60,8 @@
                     4</p>
             </div>
             <div
-                class="bg-white w-64 mx-auto p-2 border-b-2 border-green-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]">
-                <h2 class="text-BigTitle font-semibold ">maquettage de site to do</h2>
-                <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
-                    fill="#5f6368">
-                    <path
-                        d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
-                </svg>
+                class="bg-white w-64 mx-auto p-2 border-b-2 border-green-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]" id="DoneCard">
+               
             </div>
         </div>
     </section>
@@ -141,9 +126,16 @@
             
             console.log("test");
             const storeData = localStorage.getItem("info");
-            const TodoCard = document.getElementById("TodoCard");
-            const DoingCard = document.getElementById("DoingCard");
-            const DoneCard = document.getElementById("DoneCard");
+            const cards = {
+                TodoCard : document.getElementById("TodoCard"),
+                DoingCard : document.getElementById("DoingCard"),
+                DoneCard : document.getElementById("DoneCard")
+            }
+            //empty all the divs to avoid duplicate the data inside the div with the data come from the localStorage
+            Object.values(cards).forEach(card => card.innerHTML = "")
+            // const TodoCard = 
+            // const DoingCard = document.getElementById("DoingCard");
+            // const DoneCard = document.getElementById("DoneCard");
             if(storeData){
                 console.log("condition");
                 console.log("store data " + storeData);
@@ -155,12 +147,22 @@
                         console.log("data.status = ",item.status) 
                         console.log("second condition");
                         const newDiv = document.createElement("div");
-                        newDiv.innerHTML = `<h2 class="text-BigTitle font-semibold ">${item.titre}</h2>
-                        <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
-                        fill="#5f6368">
-                        <path
-                        d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
-                        </svg>`
+                        newDiv.innerHTML = `
+                        <div class="flex justify-between ">                        
+                            <h2 class="text-BigTitle font-semibold ${item.priority == 'p1' ? 'text-red-600' : item.priority == 'p2' ? ' text-orange-700' : item.priority == 'p3' ? 'text-green-600' : ''} ">${item.titre}</h2>
+                            <svg class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
+                            fill="#5f6368">
+                            <path
+                            d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
+                            </svg>
+                        </div>
+                        <div class="flex justify-between">
+                            <p>${item.date}</p>
+                            <p>${item.priority}</p>
+                        </div>
+                            
+                        `
+                        newDiv.classList.add('flex','justify-between','flex-col','mt-2')
                         if(item.status == "to do"){          
                         TodoCard.append(newDiv);
                         console.log("true");
@@ -179,6 +181,7 @@
                 console.log("user todos not found in local storage")
             }
         }
+        
         // open the modal and get the data from input and pass the data to localStorage
         document.getElementById("submit").addEventListener("click", function(event){
   event.preventDefault()
@@ -193,6 +196,7 @@
             all.push({ "id": id, "titre": titre, "descrip": description, "status": status ? status.value : '', "date": date, "priority": Priorite ? Priorite.value : '' })
             id++
             localStorage.setItem("info",JSON.stringify(all))
+
             show();
             modal.classList.add("hidden");
         })
