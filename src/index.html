@@ -32,11 +32,11 @@
             <div class="flex justify-between">
                 <h1 class="text-title font-bold text-lg pl-1">To do</h1>
                 <p
-                    class="text-title font-bold absolute top-0 right-0 bg-red-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg ">
-                    4</p>
+                    class="text-title font-bold absolute top-0 right-0 bg-red-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg " id="todoCount">
+                    </p>
             </div>
              <div
-                class="bg-white w-64 mx-auto p-2 border-b-2 border-red-600 rounded-sm mt-5 flex flex-col justify-between md:w-52 lg:w-72 xl:w-[350px]" id="TodoCard">
+                class="bg-white w-64 mx-auto p-2 border-b-2 border-red-600 rounded-sm mt-5 md:w-52 lg:w-72 xl:w-[350px]" id="TodoCard">
                 
             </div> 
         </div>
@@ -44,11 +44,11 @@
             <div class="flex justify-between">
                 <h1 class="text-title font-bold text-lg pl-1">doing</h1>
                 <p
-                    class="text-title font-bold absolute top-0 right-0 bg-orange-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8   lg:text-lg">
-                    4</p>
+                    class="text-title font-bold absolute top-0 right-0 bg-orange-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8   lg:text-lg" id="doingCount">
+                    </p>
             </div>
             <div
-                class="bg-white w-64 mx-auto p-2 border-b-2 border-orange-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]"  id="DoingCard">
+                class="bg-white w-64 mx-auto p-2 border-b-2 border-orange-600 rounded-sm mt-5 md:w-52 lg:w-72 xl:w-[350px]"  id="DoingCard">
                
             </div>
         </div>
@@ -56,11 +56,11 @@
             <div class="flex justify-between">
                 <h1 class="text-title font-bold text-lg pl-1">done</h1>
                 <p
-                    class="text-title font-bold absolute top-0 right-0 bg-green-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg">
-                    4</p>
+                    class="text-title font-bold absolute top-0 right-0 bg-green-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg" id="doneCount">
+                    </p>
             </div>
             <div
-                class="bg-white w-64 mx-auto p-2 border-b-2 border-green-600 rounded-sm mt-5 flex justify-between md:w-52 lg:w-72 xl:w-[350px]" id="DoneCard">
+                class="bg-white w-64 mx-auto p-2 border-b-2 border-green-600 rounded-sm mt-5 md:w-52 lg:w-72 xl:w-[350px]" id="DoneCard">
                
             </div>
         </div>
@@ -161,19 +161,7 @@
                          EditModal.classList.add("hidden");
                           show(); };
                 }
-                
-                // console.log(result)
-                // input.value=result.status;
-                // console.log("this is the input value",input.value)
-                // console.log("this is should be the new status value ",result.status);
-                // submitModal.addEventListener('click',function(event){
-                // event.preventDefault();
-                // localStorage.setItem("info",JSON.stringify(data)) 
-            
-
         }
-                // Save the updated data back to localStorage localStorage.setItem("info", JSON.stringify(data));
-                // all.push({"status": input.value})
             }
            
         
@@ -236,12 +224,38 @@
                             console.log("done true")
                         }
                     });
+                    counter();
             }
             else{
                 console.log("user todos not found in local storage")
             }
         }
-       
+        function counter(){
+            const todoCount = document.getElementById("todoCount")
+            const doingCount = document.getElementById("doingCount")
+            const doneCount = document.getElementById("doneCount")
+            const storeData = localStorage.getItem("info");
+            const data = JSON.parse(storeData)
+            let TodoCountSomme = 0 , DoingCountSomme = 0 , DoneCountSomme = 0;
+            data.forEach(item => {
+                console.log("counter test");
+                
+                if(item.status == 'to do'){
+                    TodoCountSomme++;
+                    console.log("TodoCount condition");
+                    
+                }
+                else if(item.status == 'doing'){
+                    DoingCountSomme++
+                }
+                else if(item.status == 'done'){
+                    DoneCountSomme++
+                }
+            });
+            todoCount.textContent=TodoCountSomme
+            doingCount.textContent = DoingCountSomme
+            doneCount.textContent = DoneCountSomme
+        }
         // open the modal and get the data from input and pass the data to localStorage
         document.getElementById("submit").addEventListener("click", function(event){
   event.preventDefault()
@@ -259,14 +273,17 @@
 
             show();
             modal.classList.add("hidden");
+            counter(); //pour counte l element ajouter (important pourquoi il travaille mieux ici et n est pas travaille bien hors de cette function d ajoute)
         })
-        // to get the data from localstorage 
-     
+       
         // to close the modal
         cancel.addEventListener("click", function () {
             modal.classList.add("hidden");
         })
-// show() //intiall the page with the previous data
+        
+ //intiall the page with the previous data
+document.addEventListener("DOMContentLoaded", show);
+
     </script>
 </body>
 
