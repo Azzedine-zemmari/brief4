@@ -129,8 +129,8 @@
         const cancel = document.getElementById("cancel");
         const openModal = document.getElementById("add");
         const submitModal = document.getElementById("submitModal")
-        const all = [];
-        var id = 1;
+        let all = JSON.parse(localStorage.getItem("info")) || []; // j ajoute se ligne pour eviter le delete de data quand je refresh la page 
+        var id  = all.length ? all[all.length - 1].id + 1 : 1 ; // pour eviter quand je refresh la page id et debuter par 1 alors ici je prend l id de la dernier indice et additionner par 1 mais si l array all et vide il doit debuter par 1
         openModal.addEventListener("click", function () {
             modal.classList.remove("hidden");
         })
@@ -141,9 +141,7 @@
             const input = document.getElementById("editStatus")
             console.log('test'); //debug
             
-            const storeData = localStorage.getItem("info");
-            console.log();
-            
+            const storeData = localStorage.getItem("info");            
             if(storeData){
                 console.log("first condition in showById"); //debug
                  
@@ -274,10 +272,17 @@
             show();
             modal.classList.add("hidden");
             counter(); //pour counte l element ajouter (important pourquoi il travaille mieux ici et n est pas travaille bien hors de cette function d ajoute)
+            // pour reseter le modal inputs apres la submission de model 
+            document.getElementById("titre").value = "";
+            document.getElementById("description").value = "";
+            document.querySelector('input[name="status"]:checked').value = "";
+            document.getElementById("date").value = ""
+            document.querySelector('input[name="Priorite"]:checked').value = ""
         })
        
         // to close the modal
-        cancel.addEventListener("click", function () {
+        cancel.addEventListener("click", function (event) {
+            event.preventDefault()
             modal.classList.add("hidden");
         })
         
