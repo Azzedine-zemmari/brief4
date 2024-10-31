@@ -27,7 +27,7 @@
         </div>
     </header>
     <!-- all the cards -->
-    <section class="grid grid-cols-1 grid-rows-3 md:grid-cols-3 md:grid-rows-1 place-items-center mt-3">
+    <section class="grid grid-cols-1 grid-rows-3 md:grid-cols-3 md:grid-rows-1 place-items-center md:items-start mt-3">
         <div class="relative card ">
             <div class="flex justify-between">
                 <h1 class="text-title font-bold text-lg pl-1">To do</h1>
@@ -71,8 +71,10 @@
         <form class="flex flex-col m-3 ">
             <label for="titre">titre</label>
             <input type="text" class=" border bg-slate-200" id="titre">
+            <p id="name-error" class="text-red-500 font-bold"></p>
             <label for="description">description</label>
             <textarea class=" border bg-slate-200 resize-none" id="description"></textarea>
+            <p id="description-error" class="text-red-500 font-bold"></p>
             <label for="status">status</label>
             <div class="flex flex-col">
                 <div class="flex items-center gap-2">
@@ -88,8 +90,10 @@
                     <input type="radio" name="status" id="done" value="done">
                 </div>
             </div>
+            <p id="status-error" class="text-red-500 font-bold"></p>
             <label for="date">Date d'echéance</label>
             <input type="date" name="date" id="date">
+            <p id="date-error" class="text-red-500 font-bold"></p>
             <label for="Priorite">Priorite</label>
             <div class="flex flex-col">
                 <div class="flex items-center gap-2">
@@ -105,6 +109,7 @@
                     <input type="radio" name="Priorite" id="P3" value="p3">
                 </div>
             </div>
+            <p id="priority-error" class="text-red-500 font-bold"></p>
             <div class="flex mt-2 gap-2">
                 <button class="bg-green-500 p-2 rounded-md text-white font-medium" id="submit">submit</button>
                 <button class="bg-red-500 p-2 rounded-md text-white" id="cancel">cancel</button>
@@ -258,26 +263,65 @@
         document.getElementById("submit").addEventListener("click", function(event){
   event.preventDefault()
 });
+        function validation(title , desc , status , date , prio){
+            const nameError = document.getElementById("name-error");
+            const descError = document.getElementById("description-error")
+            const statuError = document.getElementById("status-error")
+            const dateError = document.getElementById("date-error")
+            const priorityError = document.getElementById("priority-error")
+            let isValid = true;
+            // Reset error messages on each validation
+            nameError.textContent = ""
+            descError.textContent = ""
+            statuError.textContent = ""
+            dateError.textContent = ""
+            priorityError.textContent = ""
+            // when found an empty field it shows an error message
+            if(title == ""){
+                nameError.innerText = "le nom is required"
+                isValid = false;
+            }
+            if(desc == ""){
+                descError.innerText = "la description et requird"
+                isValid = false;
+            }
+            if(status == null){
+                statuError.innerText = "le status et required"
+                isValid = false;
+            }
+            if(date == ""){
+                dateError.innerText = "la date et required"
+                isValid = false;
+            }
+            if(prio == null){
+                priorityError.innerText = "la priority et required"
+                isValid = false;
+            }
+            return isValid;
+        }
         submit.addEventListener("click", function (event) {
             const titre = document.getElementById("titre").value;
             const description = document.getElementById("description").value;
             const status = document.querySelector('input[name="status"]:checked');
             const date = document.getElementById("date").value;
             const Priorite = document.querySelector('input[name="Priorite"]:checked');
+            // if all the field are not empty you can push the data to array
+            const isValid = validation(titre,description,status,date,Priorite);
+            if(isValid){
+                all.push({ "id": id, "titre": titre, "descrip": description, "status": status ? status.value : '', "date": date, "priority": Priorite ? Priorite.value : '' })
+                modal.classList.add("hidden");
+                id++
+                localStorage.setItem("info",JSON.stringify(all))
+                show();
+                counter(); //pour counte l element ajouter (important pourquoi il travaille mieux ici et n est pas travaille bien hors de cette function d ajoute)
+                // pour reseter le modal inputs apres la submission de model 
+                document.getElementById("titre").value = "";
+                document.getElementById("description").value = "";
+                status.checked = false;
+                document.getElementById("date").value = "";
+                Priorite.checked = false;
+            }
 
-            all.push({ "id": id, "titre": titre, "descrip": description, "status": status ? status.value : '', "date": date, "priority": Priorite ? Priorite.value : '' })
-            id++
-            localStorage.setItem("info",JSON.stringify(all))
-
-            show();
-            modal.classList.add("hidden");
-            counter(); //pour counte l element ajouter (important pourquoi il travaille mieux ici et n est pas travaille bien hors de cette function d ajoute)
-            // pour reseter le modal inputs apres la submission de model 
-            document.getElementById("titre").value = "";
-            document.getElementById("description").value = "";
-            document.querySelector('input[name="status"]:checked').value = "";
-            document.getElementById("date").value = ""
-            document.querySelector('input[name="Priorite"]:checked').value = ""
         })
        
         // to close the modal
