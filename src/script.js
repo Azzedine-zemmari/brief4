@@ -27,15 +27,15 @@ function openEditModal(id){
         if(result){
             submitModal.onclick = function(event) { 
                 event.preventDefault(); 
-                result.status = input.value;
+                result.status = input.value; // to change the old status with a new one
                  console.log("this should be the new status value", result.status); // Save the updated data back to localStorage 
                  localStorage.setItem("info", JSON.stringify(data)); 
                  EditModal.classList.add("hidden");
                   show(); };
         }
-}
     }
-   
+}
+
 
 
 function show (){
@@ -60,23 +60,23 @@ function show (){
         console.log("this is data ",data);
         data.forEach((item) => {  
             console.log(item)
-                console.log("data.status = ",item.status) 
-                console.log("second condition");
-                const newDiv = document.createElement("div");
-                newDiv.innerHTML = `
-                <div class="flex justify-between ">                        
-                    <h2 class="text-BigTitle font-semibold ${item.priority == 'p1' ? 'text-red-600' : item.priority == 'p2' ? ' text-orange-700' : item.priority == 'p3' ? 'text-green-600' : ''} ">${item.titre}</h2>
-                    <svg  class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
-                    fill="#5f6368">
-                    <path
-                    d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
-                    </svg>
-                </div>
+            console.log("data.status = ",item.status) 
+            console.log("second condition");
+            const newDiv = document.createElement("div");
+            newDiv.innerHTML = `
+            <div class="flex justify-between ">                        
+            <h2 class="text-BigTitle font-semibold ${item.priority == 'p1' ? 'text-red-600' : item.priority == 'p2' ? ' text-orange-700' : item.priority == 'p3' ? 'text-green-600' : ''} ">${item.titre}</h2>
+            <svg  class=" w-4" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px"
+            fill="#5f6368">
+            <path
+            d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
+            </svg>
+            </div>
                 <div class="flex justify-between">
-                    <p>${item.date}</p>
-                    <p>${item.priority}</p>
+                <p class="date">${item.date}</p>
+                <p class="pri">${item.priority}</p>
                 </div>
-                    
+                
                 `
                 // assign a function to svg 
                 newDiv.querySelector('svg').onclick = function(){
@@ -84,21 +84,21 @@ function show (){
                 };
                 newDiv.classList.add('flex','justify-between','flex-col','mt-2')
                 if(item.status == "to do"){          
-                TodoCard.append(newDiv);
-                console.log("true");
+                    TodoCard.append(newDiv);
+                    // console.log("true");
                 }
-                 if (item.status == "doing"){
+                if (item.status == "doing"){
                     DoingCard.append(newDiv)
-                    console.log("doing true");
+                    // console.log("doing true");
                 }
                 if(item.status == "done"){
                     DoneCard.append(newDiv);
-                    console.log("done true")
+                    // console.log("done true")
                 }
             });
             counter();
-    }
-    else{
+        }
+        else{
         console.log("user todos not found in local storage")
     }
 }
@@ -168,7 +168,7 @@ function validation(title , desc , status , date , prio){
     }
     return isValid;
 }
-submit.addEventListener("click", function (event) {
+function Add (){
     const titre = document.getElementById("titre").value;
     const description = document.getElementById("description").value;
     const status = document.querySelector('input[name="status"]:checked');
@@ -190,8 +190,8 @@ submit.addEventListener("click", function (event) {
         document.getElementById("date").value = "";
         Priorite.checked = false;
     }
-
-})
+}
+submit.addEventListener("click", Add)
 
 // to close the modal
 cancel.addEventListener("click", function (event) {
@@ -200,4 +200,4 @@ cancel.addEventListener("click", function (event) {
 })
 
 //intiall the page with the previous data
-document.addEventListener("DOMContentLoaded", show);
+document.addEventListener("DOMContentLoaded",show);

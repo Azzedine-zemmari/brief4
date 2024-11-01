@@ -11,6 +11,10 @@ module.exports = {
         'CardBg' : '#f1f2f4'
       },
     },
+    backgroundImage:{
+      'blackCover' : "url('../image/maxim-berg-3E2xgrlNXq4-unsplash.jpg')",
+      'whiteCover' : "url('../image/maxim-berg-ZESbrsLBPPk-unsplash.jpg')"
+    }
   },
   plugins: [],
 }
