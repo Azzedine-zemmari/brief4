@@ -184,6 +184,17 @@ function validation(title , desc , status , date , prio){
         dateError.innerText = "la date et required"
         isValid = false;
     }
+    else{
+        // console.log("date : ",new Date(date))
+        const selecteData = new Date(date) //convert string to date format
+        const today = new Date()
+        today.setHours(0,0,0);// to compare only the date not to compare the time
+        // console.log(today)
+        if(selecteData < today){
+            dateError.innerText = "la date ne pas doit etre avant ajourdhui"
+            isValid = false
+        }
+    }
     if(prio == null){
         priorityError.innerText = "la priority et required"
         isValid = false;
