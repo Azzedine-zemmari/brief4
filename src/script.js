@@ -5,9 +5,25 @@ const openModal = document.getElementById("add");
 const submitModal = document.getElementById("submitModal")
 let all = JSON.parse(localStorage.getItem("info")) || []; // j ajoute se ligne pour eviter le delete de data quand je refresh la page 
 var id  = all.length ? all[all.length - 1].id + 1 : 1 ; // pour eviter quand je refresh la page id et debuter par 1 alors ici je prend l id de la dernier indice et additionner par 1 mais si l array all et vide il doit debuter par 1
+//this function update the array with the updated localstorage that i delete from it some task (bug fixed)
+function getFromLS(){
+    let data  = localStorage.getItem("info")
+    if(data){
+        all = JSON.parse(data)
+    }
+}
 openModal.addEventListener("click", function () {
     modal.classList.remove("hidden");
 })
+function deleteTask(id){
+    const storeData = localStorage.getItem("info");
+    const data = JSON.parse(storeData)
+    const result = data.findIndex(obj => obj.id === id);
+    console.log("id deleted : ", result);
+        data.splice(result,1)
+        localStorage.setItem("info",JSON.stringify(data))
+        show()
+}
 
 function openEditModal(id){
     const EditModal = document.getElementById("editModal")
@@ -77,11 +93,17 @@ function show (){
                 <p class="pri">${item.priority}</p>
                 </div>
                 
+                <button  class="bg-red-600 text-white w-16">delete</button>
+                
+                
                 `
                 // assign a function to svg 
                 newDiv.querySelector('svg').onclick = function(){
                     openEditModal(item.id) //to open the edit modal
                 };
+                newDiv.querySelector("button").onclick = function(){
+                    deleteTask(item.id)
+                }
                 newDiv.classList.add('flex','justify-between','flex-col','mt-2')
                 if(item.status == "to do"){          
                     TodoCard.append(newDiv);
@@ -169,6 +191,7 @@ function validation(title , desc , status , date , prio){
     return isValid;
 }
 function Add (){
+getFromLS()
     const titre = document.getElementById("titre").value;
     const description = document.getElementById("description").value;
     const status = document.querySelector('input[name="status"]:checked');
@@ -192,6 +215,8 @@ function Add (){
     }
 }
 submit.addEventListener("click", Add)
+
+
 
 // to close the modal
 cancel.addEventListener("click", function (event) {
