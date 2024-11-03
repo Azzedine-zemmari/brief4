@@ -7,22 +7,39 @@
     <title>to do</title>
     <link rel="stylesheet" href="./output.css">
     <style>
-        html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  box-sizing: border-box;
-}
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
 
-.bg-hero {
-    min-height: 100vh;
-    width: 100%;
-}
- </style>
+        .bg-hero {
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            z-index: 99999;
+            background-color: white;
+        }
+    </style>
 </head>
 
-<body class=" m-0 z-0">
+<body onload="setTimeout(removeLoader,1000);" class=" m-0 z-0">
+    <div id="loader"><img src="./Animation.gif" alt=""></div>
     <header class="flex justify-between p-2 bg-primary">
         <span class="relative flex items-center">
             <input type="text" placeholder="recherche"
@@ -45,37 +62,37 @@
         <div class="relative card ">
             <div class="flex justify-between">
                 <h1 id="titleTodo" class="text-title font-bold text-lg pl-1">To do</h1>
-                <p
-                    class="text-title font-bold absolute top-0 right-0 bg-red-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg " id="todoCount">
-                    </p>
+                <p class="text-title font-bold absolute top-0 right-0 bg-red-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg "
+                    id="todoCount">
+                </p>
             </div>
-             <div
-                class="bg-white w-64 mx-auto p-2 border-b-2 border-red-600 rounded-sm mt-5 md:w-52 lg:w-72 xl:w-[350px]" id="TodoCard">
-                
-            </div> 
+            <div class="bg-white w-64 mx-auto p-2 border-b-2 border-red-600 rounded-sm mt-5 md:w-52 lg:w-72 xl:w-[350px]"
+                id="TodoCard">
+
+            </div>
         </div>
         <div class="relative card mt-1">
             <div class="flex justify-between">
                 <h1 id="doingTitle" class="text-title font-bold text-lg pl-1">doing</h1>
-                <p
-                    class="text-title font-bold absolute top-0 right-0 bg-orange-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8   lg:text-lg" id="doingCount">
-                    </p>
+                <p class="text-title font-bold absolute top-0 right-0 bg-orange-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8   lg:text-lg"
+                    id="doingCount">
+                </p>
             </div>
-            <div
-                class="bg-white w-64 mx-auto p-2 border-b-2 border-orange-600 rounded-sm mt-5 md:w-52 lg:w-72 xl:w-[350px]"  id="DoingCard">
-               
+            <div class="bg-white w-64 mx-auto p-2 border-b-2 border-orange-600 rounded-sm mt-5 md:w-52 lg:w-72 xl:w-[350px]"
+                id="DoingCard">
+
             </div>
         </div>
-        <div  class="relative card mt-1">
+        <div class="relative card mt-1">
             <div class="flex justify-between">
                 <h1 id="doneTitle" class="text-title font-bold text-lg pl-1">done</h1>
-                <p
-                    class="text-title font-bold absolute top-0 right-0 bg-green-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg" id="doneCount">
-                    </p>
+                <p class="text-title font-bold absolute top-0 right-0 bg-green-600 rounded-full w-6 h-6 text-center lg:w-8 lg:h-8 lg:text-lg"
+                    id="doneCount">
+                </p>
             </div>
-            <div
-                class="bg-white w-64 mx-auto p-2 border-b-2 border-green-600 rounded-sm mt-5 md:w-52 lg:w-72 xl:w-[350px]" id="DoneCard">
-               
+            <div class="bg-white w-64 mx-auto p-2 border-b-2 border-green-600 rounded-sm mt-5 md:w-52 lg:w-72 xl:w-[350px]"
+                id="DoneCard">
+
             </div>
         </div>
     </section>
@@ -131,7 +148,8 @@
         </form>
     </div>
     <!-- edit modal -->
-    <div  id="editModal" class="bg-white hidden border border-title w-60 h-auto rounded-lg fixed top-72  left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:top-96">
+    <div id="editModal"
+        class="bg-white hidden border border-title w-60 h-auto rounded-lg fixed top-72  left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:top-96">
         <form class="flex flex-col m-3">
             <label for="status">status</label>
             <select name="" id="editStatus">
@@ -143,6 +161,12 @@
         </form>
     </div>
     <!-- change theme -->
+    <script>
+        function removeLoader() {
+            let loader = document.getElementById('loader');
+            loader.style = 'display: none;';
+        }
+    </script>
     <script src="./script.js"></script>
 </body>
 
